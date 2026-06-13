@@ -1,165 +1,164 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrian Wojtasik - Portfolio</title>
-    <style>
-        :root {
-            --bg-dark: #0a0a1a;
-            --accent-blue: #4a90e2;
-            --neon-green: #39ff14;
-            --text-light: #e0e0ff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adrian Wojtasik - Portfolio</title>
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
+<style>
+:root {
+    --bg-dark: #0a0a1a;
+    --accent-blue: #4a90e2;
+    --neon-green: #39ff14;
+    --text-light: #e0e0ff;
+}
 
-        /* Tło z efektem głębi kognitywnej */
-        .background-anim {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, #1a1a3a 0%, #0a0a1a 100%);
-            z-index: -2;
-        }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
 
-        /* Pływające "fiszki peryferyjne" - wizualizacja rejestru sensorycznego */
-        .peripheral-item {
-            position: absolute;
-            background: rgba(74, 144, 226, 0.1);
-            border: 1px solid rgba(74, 144, 226, 0.3);
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            color: rgba(224, 224, 255, 0.4);
-            pointer-events: none;
-            animation: drift 30s infinite linear;
-        }
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #1a1a3a 0%, #0a0a1a 100%);
+    z-index: -1;
+}
 
-        @keyframes drift {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(180px, 120px) rotate(15deg); }
-            50% { transform: translate(-80px, 350px) rotate(-15deg); }
-            75% { transform: translate(-250px, 180px) rotate(10deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
-        }
+/* HEADER */
+header {
+    text-align: center;
+    margin-top: 50px;
+}
 
-        header {
-            text-align: center;
-            z-index: 1;
-        }
+h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    background: linear-gradient(to right, var(--accent-blue), var(--neon-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-        h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 8px;
-            background: linear-gradient(to right, var(--accent-blue), var(--neon-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.3));
-            animation: pulseGlow 4s infinite alternate;
-        }
+.subtitle {
+    color: var(--neon-green);
+    margin-top: 8px;
+}
 
-        @keyframes pulseGlow {
-            from { filter: drop-shadow(0 0 5px var(--accent-blue)); }
-            to { filter: drop-shadow(0 0 25px var(--neon-green)); }
-        }
+/* BIO */
+.bio {
+    max-width: 700px;
+    margin-top: 25px;
+    padding: 25px;
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid var(--accent-blue);
+    border-radius: 12px;
+    line-height: 1.6;
+}
 
-        .study-path {
-            font-size: 1.6rem;
-            color: var(--neon-green);
-            margin-top: 10px;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
+/* BUTTONS */
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        .bio-box {
-            max-width: 650px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 35px;
-            border-radius: 20px;
-            border-left: 4px solid var(--accent-blue);
-            backdrop-filter: blur(15px);
-            margin-top: 40px;
-            line-height: 1.7;
-            animation: slideIn 1.5s ease-out;
-        }
+.btn {
+    padding: 14px 24px;
+    border-radius: 40px;
+    border: 1px solid var(--accent-blue);
+    background: rgba(74,144,226,0.1);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.btn:hover {
+    background: var(--accent-blue);
+    box-shadow: 0 0 20px var(--accent-blue);
+    transform: translateY(-3px);
+}
 
-        .links-container {
-            margin-top: 50px;
-            display: flex;
-            gap: 25px;
-        }
-
-        .btn-artifact {
-            text-decoration: none;
-            color: var(--text-light);
-            border: 1px solid var(--accent-blue);
-            padding: 15px 30px;
-            border-radius: 50px;
-            transition: all 0.4s ease;
-            font-size: 0.9rem;
-            background: rgba(74, 144, 226, 0.05);
-            text-align: center;
-        }
-
-        .btn-artifact:hover {
-            background: var(--accent-blue);
-            color: white;
-            box-shadow: 0 0 20px var(--accent-blue);
-            transform: translateY(-5px);
-        }
-    </style>
+/* PDF VIEWER */
+.viewer {
+    width: 90%;
+    max-width: 1100px;
+    height: 80vh;
+    margin-top: 30px;
+    border: 2px solid var(--accent-blue);
+    border-radius: 12px;
+    display: none;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="background-anim"></div>
-    
-    <!-- Elementy wizualizujące procesy kognitywne w tle -->
-    <div class="peripheral-item" style="top: 10%; left: 8%;">SLA Noticing</div>
-    <div class="peripheral-item" style="bottom: 25%; right: 12%; animation-duration: 40s;">LLM Engineering</div>
-    <div class="peripheral-item" style="top: 55%; left: 5%; animation-duration: 25s;">Incidental Learning</div>
-    <div class="peripheral-item" style="bottom: 15%; left: 25%; animation-duration: 45s;">Cognitive Scaffolding</div>
+<div class="background"></div>
 
-    <header>
-        <h1>Adrian Wojtasik</h1>
-        <p class="study-path">Informatyka i Psychologia</p>
-    </header>
+<header>
+    <h1>Adrian Wojtasik</h1>
+    <div class="subtitle">Informatyka i Psychologia</div>
+</header>
 
-    <div class="bio-box">
-        <p>
-            Specjalizuję się w projektowaniu systemów łączących zaawansowaną technologię z mechanizmami ludzkiego poznania. 
-            Moje pasje to <strong>programowanie</strong> oraz wykorzystanie <strong>sztucznej inteligencji</strong> 
-            do optymalizacji procesów edukacyjnych.
-        </p>
-        <p>
-            W swojej pracy badawczej rozwijam koncepcję <strong>cyfrowych rusztowań (scaffolding)</strong>, 
-            które umożliwiają <strong>uczenie się incydentalne</strong> struktur językowych. Poprzez wykorzystanie 
-            <strong>uwagi peryferyjnej</strong>, tworzę narzędzia pozwalające na efektywną akwizycję wiedzy 
-            jako naturalnego produktu ubocznego codziennych interakcji z interfejsem cyfrowym.
-        </p>
-    </div>
+<div class="bio">
+    Specjalizuję się w projektowaniu systemów łączących technologię i ludzkie poznanie.
+    Pracuję nad AI, edukacją i uczeniem incydentalnym.
+</div>
 
-    <div class="links-container">
-        <a href="#" class="btn-artifact">Beyond Focal Attention<br>(Prezentacja)</a>
-        <a href="#" class="btn-artifact">Cognitive Language Engineering<br>(Prezentacja)</a>
-    </div>
+<div class="buttons">
+    <button class="btn" onclick="openPDF('beyond')">
+        Beyond Focal Attention
+    </button>
+
+    <button class="btn" onclick="openPDF('cognitive')">
+        Cognitive Language Engineering
+    </button>
+</div>
+
+<iframe id="viewer" class="viewer"></iframe>
+
+<script>
+const pdfs = {
+    beyond: "https://raw.githubusercontent.com/FabianAdrianW/htmlstudia/main/Beyond_Focal_Attention.pdf",
+    cognitive: "https://raw.githubusercontent.com/FabianAdrianW/htmlstudia/main/Cognitive_Language_Engineering.pdf"
+};
+
+function openPDF(key) {
+    const viewer = document.getElementById("viewer");
+    const fileUrl = pdfs[key];
+
+    // PDF.js viewer (KLUCZ - brak pobierania)
+    const viewerUrl =
+        "https://mozilla.github.io/pdf.js/web/viewer.html?file=" +
+        encodeURIComponent(fileUrl);
+
+    // toggle
+    if (viewer.dataset.current === key) {
+        viewer.src = "";
+        viewer.style.display = "none";
+        viewer.dataset.current = "";
+        return;
+    }
+
+    viewer.src = viewerUrl;
+    viewer.style.display = "block";
+    viewer.dataset.current = key;
+
+    viewer.scrollIntoView({ behavior: "smooth" });
+}
+</script>
 
 </body>
 </html>
